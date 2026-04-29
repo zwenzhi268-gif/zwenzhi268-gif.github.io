@@ -24,21 +24,20 @@
             padding: 20px;
         }
 
-        /* 主容器 - 玻璃拟态风格 */
+        /* 主容器 */
         .container {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
             width: 100%;
             max-width: 900px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
         }
 
         /* 头部区域 */
         .header {
-            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); /* 科技冷色调渐变 */
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
             padding: 40px 20px;
             text-align: center;
             color: white;
@@ -62,7 +61,7 @@
             border: 4px solid rgba(255, 255, 255, 0.3);
             margin-bottom: 15px;
             object-fit: cover;
-            background-color: #ddd; /* 头像占位色 */
+            background-color: #ddd;
         }
 
         .header h1 {
@@ -87,7 +86,7 @@
         .section-title {
             font-size: 1.4rem;
             color: #2c3e50;
-            border-left: 5px solid #00d2ff; /* 左侧青色装饰条 */
+            border-left: 5px solid #00d2ff;
             padding-left: 15px;
             margin-bottom: 25px;
             margin-top: 30px;
@@ -100,6 +99,11 @@
             color: #555;
             text-align: justify;
             font-size: 1.05rem;
+        }
+
+        .highlight {
+            color: #2c5364;
+            font-weight: bold;
         }
 
         /* 技能标签 */
@@ -126,32 +130,47 @@
             box-shadow: 0 4px 10px rgba(0, 210, 255, 0.3);
         }
 
-        /* 兴趣爱好网格 */
+        /* 兴趣爱好 - 修改为两列布局 */
         .hobbies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr; /* 强制两列，每列宽度相等 */
+            gap: 25px; /* 卡片之间的间距 */
         }
 
         .hobby-card {
             background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hobby-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
             border-color: #00d2ff;
+            background: #fff;
         }
 
         .hobby-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             display: block;
+        }
+
+        .hobby-card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .hobby-card p {
+            font-size: 0.9rem;
+            color: #666;
         }
 
         /* 页脚 */
@@ -178,10 +197,13 @@
             background-color: #00d2ff;
         }
 
-        /* 响应式调整 */
+        /* 响应式调整 - 手机端变回单列 */
         @media (max-width: 600px) {
             .content {
                 padding: 20px;
+            }
+            .hobbies-grid {
+                grid-template-columns: 1fr; /* 手机端单列 */
             }
             .header h1 {
                 font-size: 1.8rem;
@@ -194,7 +216,7 @@
     <div class="container">
         <!-- 头部信息 -->
         <header class="header">
-            <!-- 如果你有头像图片，可以将src换成你的图片链接 -->
+            <!-- 头像占位图，你可以替换成自己的 -->
             <img src="https://via.placeholder.com/150" alt="张文志头像" class="avatar">
             <h1>张文志</h1>
             <p class="tagline">广东工业大学 · 工业设计工程硕士</p>
@@ -208,19 +230,19 @@
                     你好！我是张文志，目前就读于<strong>广东工业大学</strong>，是一名<strong>工业设计工程</strong>专业的硕士研究生一年级学生。
                 </p>
                 <p style="margin-top: 15px;">
-                    我对设计有着执着的追求，致力于探索<strong>“科技”与“人文”</strong>的交汇点。作为一名工科背景的设计师，我不仅关注产品的外观美学，更注重逻辑构建与用户体验的深度融合。
+                    我拥有独特的<span class="highlight">交叉学科背景</span>：本科主修<strong>艺术设计</strong>，硕士阶段深造<strong>工业设计工程</strong>。这种“艺工结合”的教育经历，使我既能保持艺术家的敏锐审美与感性思维，又具备工程师的严谨逻辑与技术落地能力，致力于在设计创新中寻找美学与功能的最佳平衡点。
                 </p>
             </div>
 
-            <!-- 专业技能 -->
-            <h2 class="section-title">技能栈</h2>
+            <!-- 技能标签 -->
+            <h2 class="section-title">技能领域</h2>
             <div class="skills-container">
-                <span class="skill-tag">工业设计</span>
+                <span class="skill-tag">艺术设计与美学</span>
+                <span class="skill-tag">工业工程逻辑</span>
                 <span class="skill-tag">用户体验研究</span>
                 <span class="skill-tag">Python 编程</span>
-                <span class="skill-tag">Web 前端开发</span>
-                <span class="skill-tag">三维建模</span>
-                <span class="skill-tag">数据分析</span>
+                <span class="skill-tag">三维建模与渲染</span>
+                <span class="skill-tag">跨学科创新</span>
             </div>
 
             <!-- 兴趣与生活 -->
@@ -229,22 +251,22 @@
                 <div class="hobby-card">
                     <span class="hobby-icon">🏃</span>
                     <h3>跑步</h3>
-                    <p style="font-size: 0.9rem; color: #666;">享受多巴胺分泌的快乐，在奔跑中保持自律与专注。</p>
+                    <p>享受多巴胺分泌的快乐，在长距离奔跑中磨练意志，保持自律与专注。</p>
                 </div>
                 <div class="hobby-card">
                     <span class="hobby-icon">🏸</span>
                     <h3>羽毛球</h3>
-                    <p style="font-size: 0.9rem; color: #666;">敏捷的反应与策略的博弈，保持充沛的精力。</p>
+                    <p>敏捷的反应与策略的博弈，在挥洒汗水中保持充沛的精力与活力。</p>
                 </div>
                 <div class="hobby-card">
                     <span class="hobby-icon">🎧</span>
                     <h3>音乐</h3>
-                    <p style="font-size: 0.9rem; color: #666;">灵感的源泉，在旋律中寻找设计的节奏感。</p>
+                    <p>灵感的源泉，在丰富的旋律与节奏中放松身心，寻找设计的节奏感。</p>
                 </div>
                 <div class="hobby-card">
                     <span class="hobby-icon">💻</span>
                     <h3>编程</h3>
-                    <p style="font-size: 0.9rem; color: #666;">用代码构建逻辑世界，探索技术与设计的边界。</p>
+                    <p>用代码构建逻辑世界，探索技术与设计的边界，享受解决问题的成就感。</p>
                 </div>
             </div>
 
